@@ -14,6 +14,7 @@
 		9D39B7151926275D004DD893 /* RGMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B7121926275D004DD893 /* RGMapAnnotation.m */; };
 		9D39B7161926275D004DD893 /* RGAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B7141926275D004DD893 /* RGAnnotationView.m */; };
 		9D39B71A19262FCC004DD893 /* TSMapData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B71919262FCC004DD893 /* TSMapData.m */; };
+		9D39B71D19266076004DD893 /* RGLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B71C19266076004DD893 /* RGLocationController.m */; };
 		9D882A791926120F002A07D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A781926120F002A07D8 /* Foundation.framework */; };
 		9D882A7B1926120F002A07D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A7A1926120F002A07D8 /* CoreGraphics.framework */; };
 		9D882A7D1926120F002A07D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A7C1926120F002A07D8 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		9D39B7141926275D004DD893 /* RGAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGAnnotationView.m; sourceTree = "<group>"; };
 		9D39B71819262FCC004DD893 /* TSMapData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMapData.h; sourceTree = "<group>"; };
 		9D39B71919262FCC004DD893 /* TSMapData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMapData.m; sourceTree = "<group>"; };
+		9D39B71B19266076004DD893 /* RGLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGLocationController.h; sourceTree = "<group>"; };
+		9D39B71C19266076004DD893 /* RGLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGLocationController.m; sourceTree = "<group>"; };
 		9D882A751926120F002A07D8 /* TouriStein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouriStein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D882A781926120F002A07D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D882A7A1926120F002A07D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 		9D882A7E1926120F002A07D8 /* TouriStein */ = {
 			isa = PBXGroup;
 			children = (
+				9D39B71B19266076004DD893 /* RGLocationController.h */,
+				9D39B71C19266076004DD893 /* RGLocationController.m */,
 				9D39B71719262FB3004DD893 /* Models */,
 				9D39B71019262485004DD893 /* ViewControllers */,
 				9D39B70C192622FC004DD893 /* Views */,
@@ -337,6 +342,7 @@
 				9D39B71A19262FCC004DD893 /* TSMapData.m in Sources */,
 				9D39B70F192623AC004DD893 /* TSMapViewController.m in Sources */,
 				82E9A7601926147B0086E85A /* TSCameraController.m in Sources */,
+				9D39B71D19266076004DD893 /* RGLocationController.m in Sources */,
 				9D882A891926120F002A07D8 /* TSAppDelegate.m in Sources */,
 				9D39B70B192618B1004DD893 /* (null) in Sources */,
 			);

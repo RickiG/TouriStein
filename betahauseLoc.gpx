@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
 <gpx version="1.1" creator="Xcode"> 
-#Go to the Barn
-	<wpt lat="52.502682" lon="13.412207"></wpt>
-	<wpt lat="52.502682" lon="13.412207"></wpt>
+#Wait
+	<wpt lat="52.509682" lon="13.419207"></wpt>
+	<wpt lat="52.509682" lon="13.419207"></wpt>
+    <wpt lat="52.509682" lon="13.419207"></wpt>
+    <wpt lat="52.509682" lon="13.419207"></wpt>
+    <wpt lat="52.509682" lon="13.419207"></wpt>
+    <wpt lat="52.509682" lon="13.419207"></wpt>
+    
+#Go BetaHouse    
 	<wpt lat="52.502682" lon="13.412207"></wpt>
 	<wpt lat="52.502682" lon="13.412207"></wpt>
 	<wpt lat="52.502682" lon="13.412207"></wpt>
