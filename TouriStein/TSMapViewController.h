@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TSMapViewController;
+
+@protocol TSMapViewControllerDelegate<NSObject>
+
+- (void) mapViewControllerDidEnterTouristArea:(TSMapViewController*) mapViewController;
+- (void) mapViewControllerDidLeaveTouristArea:(TSMapViewController*) mapViewController;
+- (void) mapViewControllerFoundMediKit:(TSMapViewController*) mapViewController;
+
+@end
 
 @interface TSMapViewController : UIViewController
+
+@property(nonatomic, weak) id<TSMapViewControllerDelegate> delegate;
 
 @end
