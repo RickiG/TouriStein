@@ -22,6 +22,11 @@
 
 @implementation TSMainViewController
 
+- (void)dealloc
+{
+    [self.cameraViewController removeObserver:self forKeyPath:@""];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -51,7 +56,28 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[Avatar(100)]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[Avatar(130)]-|" options:0 metrics:nil views:views]];
     
+    [self.cameraViewController addObserver:self forKeyPath:@"hasFace" options:0 context:0];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (object == self.cameraViewController && [keyPath isEqualToString:@"hasFace"]) {
+        [self updateInterface];
+        return;
+    }
     
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+- (void)updateInterface
+{
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.cameraViewController.view.alpha = (self.cameraViewController.hasFace) ? 0.0 : 1.0;
+                     }
+                     completion:nil];
 }
 
 

@@ -85,7 +85,7 @@
     
     self.cameraView = [[TSCameraView alloc] initWithFrame:self.view.bounds session:self.captureSession];
     self.cameraView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    //[self.view addSubview:self.cameraView];
+    [self.view addSubview:self.cameraView];
 }
 
 
@@ -97,8 +97,10 @@
     
     //Don't set all the time
     if (hasFace != self.hasFace) {
-        self.hasFace = hasFace;
-        NSLog(@"We have %@ face", hasFace ? @"a" : @"no");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.hasFace = hasFace;
+            NSLog(@"We have %@ face", hasFace ? @"a" : @"no");
+        });
     }
 }
 
@@ -107,14 +109,18 @@
     if (hasFace == _hasFace) {
         return;
     }
-    _hasFace = hasFace;
-    if (hasFace && [self.delegate respondsToSelector:@selector(cameraViewControllerFaceDidAppear:)]) {
-        [self.delegate cameraViewControllerFaceDidAppear:self];
-    }
     
-    if (!hasFace && [self.delegate respondsToSelector:@selector(cameraViewControllerFaceDidDisappear:)]) {
-        [self.delegate cameraViewControllerFaceDidDisappear:self];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        _hasFace = hasFace;
+        if (hasFace && [self.delegate respondsToSelector:@selector(cameraViewControllerFaceDidAppear:)]) {
+            [self.delegate cameraViewControllerFaceDidAppear:self];
+        }
+        
+        if (!hasFace && [self.delegate respondsToSelector:@selector(cameraViewControllerFaceDidDisappear:)]) {
+            [self.delegate cameraViewControllerFaceDidDisappear:self];
+        }
+    });
 }
 
 #pragma mark AVCaptureVideoDataOutputSampleBufferDelegate
@@ -130,15 +136,19 @@
     NSArray *features = [self.faceDetector featuresInImage:image options:@{CIDetectorImageOrientation: @6,
                                                                            CIDetectorSmile: @YES}];
     for (CIFaceFeature *feature in features) {
-        if (feature.hasSmile) {
-            if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectHappyTourist:)]) {
-                [self.delegate cameraViewControllerDidDetectHappyTourist:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (feature.hasSmile) {
+                if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectHappyTourist:)]) {
+                    [self.delegate cameraViewControllerDidDetectHappyTourist:self];
+                }
+            } else {
+                if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectSadTourist:)]) {
+                    [self.delegate cameraViewControllerDidDetectSadTourist:self];
+                }
             }
-        } else {
-            if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectSadTourist:)]) {
-                [self.delegate cameraViewControllerDidDetectSadTourist:self];
-            }
-        }
+        });
+        
     }
 }
 
