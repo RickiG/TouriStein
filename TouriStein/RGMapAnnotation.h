@@ -11,6 +11,7 @@
 
 @interface RGMapAnnotation : NSObject<MKAnnotation>
 
+@property (nonatomic, strong) NSString *type;
 @property (nonatomic, readwrite, assign) CLLocationCoordinate2D coordinate;
 
 - (void) updateCoordinate:(CLLocationCoordinate2D) newCoordinate;
