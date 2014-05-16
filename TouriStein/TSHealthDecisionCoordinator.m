@@ -20,6 +20,17 @@
 @implementation TSHealthDecisionCoordinator
 
 
+- (id)init
+{
+    self = [super init];
+    if(self){
+        _shouldStopTimer = NO;
+        _userIsSmiling = NO;
+        _userIsUsingCamera = NO;
+    }
+    return self;
+}
+
 #pragma mark - TSMapViewControllerDelegate methods
 
 - (void)mapViewControllerDidEnterTouristArea:(TSMapViewController *)mapViewController
@@ -39,6 +50,28 @@
     [[TSHealthModel sharedInstance] bigRecharge];
 }
 
+
+#pragma mark - TSMCameraViewControllerDelegate methods
+
+- (void)cameraViewControllerDidDetectHappyTourist:(TSCameraViewController *)controller
+{
+    _userIsSmiling = YES;
+}
+
+- (void)cameraViewControllerDidDetectSadTourist:(TSCameraViewController *)controller
+{
+    _userIsSmiling = NO;
+}
+
+- (void)cameraViewControllerFaceDidAppear:(TSCameraViewController *)controller
+{
+    _userIsUsingCamera = YES;
+}
+
+- (void)cameraViewControllerFaceDidDisappear:(TSCameraViewController *)controller
+{
+    _userIsUsingCamera = NO;
+}
 
 #pragma mark - Private methods
 

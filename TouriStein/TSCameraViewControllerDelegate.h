@@ -13,7 +13,12 @@
 @protocol TSCameraViewControllerDelegate <NSObject>
 
 @optional
+
 - (void)cameraViewControllerDidDetectHappyTourist:(TSCameraViewController *)controller;
 - (void)cameraViewControllerDidDetectSadTourist:(TSCameraViewController *)controller;
+
+- (void)cameraViewControllerFaceDidAppear:(TSCameraViewController *)controller;
+- (void)cameraViewControllerFaceDidDisappear:(TSCameraViewController *)controller;
+
 
 @end

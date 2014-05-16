@@ -12,12 +12,14 @@
 
 #import "TSMainViewController.h"
 #import "TSHealthModel.h"
+#import "TSHealthDecisionCoordinator.h"
 
 @interface TSMainViewController ()
 
 @property TSAvatarViewController *avatarViewController;
 @property TSMapViewController *mapViewController;
 @property TSCameraViewController *cameraViewController;
+@property TSHealthDecisionCoordinator *healthCoordinator;
 
 @property (nonatomic, strong) UIView *flashView;
 
@@ -30,6 +32,7 @@
     self = [super init];
     if(self){
         [TSHealthModel sharedInstance];
+        self.healthCoordinator = [TSHealthDecisionCoordinator new];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(healthDidChange:) name:TSHealthDidChangeNotification object:nil];
     }
     return self;
@@ -47,6 +50,7 @@
     [self addChildViewController:self.mapViewController];
     self.mapViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.mapViewController.view];
+    _mapViewController.delegate = _healthCoordinator;
     
     self.avatarViewController = [[TSAvatarViewController alloc] init];
     [self addChildViewController:self.avatarViewController];
@@ -57,6 +61,7 @@
     [self addChildViewController:self.cameraViewController];
     self.cameraViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.cameraViewController.view];
+    _cameraViewController.delegate = _healthCoordinator;
     
     NSDictionary *views = @{@"Map": self.mapViewController.view,
                             @"Avatar": self.avatarViewController.view,
@@ -71,6 +76,9 @@
     
     self.flashView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.flashView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    
+    
+    
     
 }
 

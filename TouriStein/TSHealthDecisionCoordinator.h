@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "TSMapViewController.h"
+#import "TSCameraViewControllerDelegate.h"
 
 
-@interface TSHealthDecisionCoordinator : NSObject <TSMapViewControllerDelegate>
+@interface TSHealthDecisionCoordinator : NSObject <TSMapViewControllerDelegate, TSCameraViewControllerDelegate>
 
 
 

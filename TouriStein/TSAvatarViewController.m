@@ -47,7 +47,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(simulateHealthEvent:) userInfo:nil repeats:YES];
+//   NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(simulateHealthEvent:) userInfo:nil repeats:YES];
 
 }
 
