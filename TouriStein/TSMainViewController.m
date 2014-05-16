@@ -11,6 +11,7 @@
 #import "TSCameraViewController.h"
 
 #import "TSMainViewController.h"
+#import "TSHealthModel.h"
 
 @interface TSMainViewController ()
 
@@ -18,9 +19,26 @@
 @property TSMapViewController *mapViewController;
 @property TSCameraViewController *cameraViewController;
 
+@property (nonatomic, strong) UIView *flashView;
+
 @end
 
 @implementation TSMainViewController
+
+- (id)init
+{
+    self = [super init];
+    if(self){
+        [TSHealthModel sharedInstance];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(healthDidChange:) name:TSHealthDidChangeNotification object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad
 {
@@ -51,8 +69,47 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[Avatar(100)]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[Avatar(130)]-|" options:0 metrics:nil views:views]];
     
+    self.flashView = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.flashView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     
 }
+
+- (void)healthDidChange:(NSNotification *)notification
+{
+    NSInteger oldHealth = [notification.object integerValue];
+    NSInteger change = [[TSHealthModel sharedInstance] healthLevel] - oldHealth;
+    
+    [self setFlashColorForChange:change];
+    [self flash];
+}
+
+
+- (void)flash
+{
+    _flashView.alpha = 0.3;
+    self.flashView.frame = self.view.bounds;
+    [self.view addSubview:_flashView];
+    [UIView animateWithDuration:0.05 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _flashView.alpha = 0.7;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _flashView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [_flashView removeFromSuperview];
+            _flashView.alpha = 0.3;
+        }];
+    }];
+}
+
+- (void)setFlashColorForChange:(NSInteger)change
+{
+    if(change > 0)
+        _flashView.backgroundColor = [UIColor whiteColor];
+    else {
+        _flashView.backgroundColor = [UIColor redColor];
+    }
+}
+
 
 
 @end

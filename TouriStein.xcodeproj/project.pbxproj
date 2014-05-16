@@ -24,6 +24,7 @@
 		63D6739A192638C80052C1E8 /* dsplpain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63D67396192638C80052C1E8 /* dsplpain.wav */; };
 		63D6739C19263A9F0052C1E8 /* dsgetpow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63D6739B19263A9F0052C1E8 /* dsgetpow.wav */; };
 		63D6739E19263BC00052C1E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D6739D19263BC00052C1E8 /* AVFoundation.framework */; };
+		63D673A4192662BC0052C1E8 /* TSHealthDecisionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D673A3192662BC0052C1E8 /* TSHealthDecisionCoordinator.m */; };
 		820437DC19264D8A001B192F /* TSCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820437D819264D8A001B192F /* TSCameraView.m */; };
 		820437DD19264D8A001B192F /* TSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820437DA19264D8A001B192F /* TSCameraViewController.m */; };
 		820437E01926514F001B192F /* TSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820437DF1926514F001B192F /* TSMainViewController.m */; };
@@ -76,6 +77,8 @@
 		63D67396192638C80052C1E8 /* dsplpain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dsplpain.wav; sourceTree = "<group>"; };
 		63D6739B19263A9F0052C1E8 /* dsgetpow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dsgetpow.wav; sourceTree = "<group>"; };
 		63D6739D19263BC00052C1E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		63D673A2192662BC0052C1E8 /* TSHealthDecisionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHealthDecisionCoordinator.h; sourceTree = "<group>"; };
+		63D673A3192662BC0052C1E8 /* TSHealthDecisionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSHealthDecisionCoordinator.m; sourceTree = "<group>"; };
 		820437D719264D8A001B192F /* TSCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraView.h; sourceTree = "<group>"; };
 		820437D819264D8A001B192F /* TSCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraView.m; sourceTree = "<group>"; };
 		820437D919264D8A001B192F /* TSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraViewController.h; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				9D39B70C192622FC004DD893 /* Views */,
 				9D882A871926120F002A07D8 /* TSAppDelegate.h */,
 				9D882A881926120F002A07D8 /* TSAppDelegate.m */,
+				63D673A2192662BC0052C1E8 /* TSHealthDecisionCoordinator.h */,
+				63D673A3192662BC0052C1E8 /* TSHealthDecisionCoordinator.m */,
 				9D882A8A1926120F002A07D8 /* Images.xcassets */,
 				9D882A7F1926120F002A07D8 /* Supporting Files */,
 			);
@@ -440,6 +445,7 @@
 				820437E01926514F001B192F /* TSMainViewController.m in Sources */,
 				63D6737C19261A3D0052C1E8 /* TSAvatarViewController.m in Sources */,
 				9D39B7161926275D004DD893 /* RGAnnotationView.m in Sources */,
+				63D673A4192662BC0052C1E8 /* TSHealthDecisionCoordinator.m in Sources */,
 				9D39B71A19262FCC004DD893 /* TSMapData.m in Sources */,
 				9D39B70F192623AC004DD893 /* TSMapViewController.m in Sources */,
 				9D882A891926120F002A07D8 /* TSAppDelegate.m in Sources */,
