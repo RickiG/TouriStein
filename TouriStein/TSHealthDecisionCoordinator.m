@@ -89,7 +89,10 @@
         if(_userIsUsingCamera && !_userIsSmiling)
             return;
         
-        [[TSHealthModel sharedInstance] smallHit];
+        if(_userIsSmiling)
+            [[TSHealthModel sharedInstance] bigHit];
+        else
+            [[TSHealthModel sharedInstance] smallHit];
     }
 }
 
