@@ -12,6 +12,8 @@
 
 #import "TSCameraViewController.h"
 
+NSString * const TSCameraViewControllerTouristDidSmileNotification = @"TSCameraViewControllerTouristDidSmileNotification";
+
 @interface TSCameraViewController () <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property AVCaptureSession *captureSession;
@@ -139,6 +141,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if (feature.hasSmile) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:TSCameraViewControllerTouristDidSmileNotification object:self];
                 if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectHappyTourist:)]) {
                     [self.delegate cameraViewControllerDidDetectHappyTourist:self];
                 }
