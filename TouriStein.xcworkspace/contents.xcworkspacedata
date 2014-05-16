@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:bherazryi_WalkingdirectionstobetahausGmbHCOKGBerlinGermany.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:home_the_barn.gpx">
+   </FileRef>
+   <FileRef
       location = "group:betahauseLoc.gpx">
    </FileRef>
    <FileRef
