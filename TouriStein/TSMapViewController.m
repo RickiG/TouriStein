@@ -8,17 +8,22 @@
 
 #import "TSMapViewController.h"
 
-@interface TSMapViewController ()
+@import MapKit;
+
+@interface TSMapViewController ()<MKMapViewDelegate>
+
+@property(nonatomic, strong) MKMapView *mapView;
 
 @end
 
 @implementation TSMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+
+        
     }
     return self;
 }
@@ -26,7 +31,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupMapView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
+
+- (void) setupMapView
+{
+    _mapView = [[MKMapView alloc] init];
+    _mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _mapView.showsUserLocation = YES;
+    [self.view addSubview:_mapView];
+}
+
+- (void) setupRegions
+{
+    
+}
+
+- (void) setupLocationManager
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
