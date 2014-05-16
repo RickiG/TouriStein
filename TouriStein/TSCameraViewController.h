@@ -14,6 +14,6 @@
 
 @property (weak) id<TSCameraViewControllerDelegate> delegate;
 
-@property BOOL hasFace;
+@property (nonatomic) BOOL hasFace;
 
 @end

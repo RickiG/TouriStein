@@ -81,9 +81,11 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor greenColor];
+    
     self.cameraView = [[TSCameraView alloc] initWithFrame:self.view.bounds session:self.captureSession];
     self.cameraView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    [self.view addSubview:self.cameraView];
+    //[self.view addSubview:self.cameraView];
 }
 
 
@@ -97,6 +99,21 @@
     if (hasFace != self.hasFace) {
         self.hasFace = hasFace;
         NSLog(@"We have %@ face", hasFace ? @"a" : @"no");
+    }
+}
+
+- (void)setHasFace:(BOOL)hasFace
+{
+    if (hasFace == _hasFace) {
+        return;
+    }
+    _hasFace = hasFace;
+    if (hasFace && [self.delegate respondsToSelector:@selector(cameraViewControllerFaceDidAppear:)]) {
+        [self.delegate cameraViewControllerFaceDidAppear:self];
+    }
+    
+    if (!hasFace && [self.delegate respondsToSelector:@selector(cameraViewControllerFaceDidDisappear:)]) {
+        [self.delegate cameraViewControllerFaceDidDisappear:self];
     }
 }
 
