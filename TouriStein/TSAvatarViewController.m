@@ -37,9 +37,12 @@
     // Do any additional setup after loading the view.
     
     self.avatarView = [[UIImageView alloc] initWithImage:[[TSHealthModel sharedInstance] avatarImage]];
-    [self.view addSubview:_avatarView];
+    self.avatarView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    self.avatarView.frame = self.view.bounds;
+    [self.view addSubview:self.avatarView];
     
     self.flashView = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.flashView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -63,6 +66,7 @@
 - (void)flash
 {
     _flashView.alpha = 0.7;
+    self.flashView.frame = self.view.bounds;
     [self.view addSubview:_flashView];
     [UIView animateWithDuration:0.05 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _flashView.alpha = 1.0;

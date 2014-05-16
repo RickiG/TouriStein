@@ -30,9 +30,9 @@
     return self;
 }
 
-- (void)setBounds:(CGRect)bounds
+- (void)layoutSubviews
 {
-    [super setBounds:bounds];
+    [super layoutSubviews];
     self.previewLayer.frame = self.layer.bounds;
 }
 

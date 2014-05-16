@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A54CA91B41847F6B22F6075 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5396648E01CA4222A78E8CBA /* libPods.a */; };
 		63D6737C19261A3D0052C1E8 /* TSAvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6737B19261A3D0052C1E8 /* TSAvatarViewController.m */; };
 		63D6738019261B6E0052C1E8 /* TSHealthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6737F19261B6E0052C1E8 /* TSHealthModel.m */; };
 		63D67386192625250052C1E8 /* health0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D67382192625250052C1E8 /* health0@2x.png */; };
@@ -23,8 +24,9 @@
 		63D6739A192638C80052C1E8 /* dsplpain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63D67396192638C80052C1E8 /* dsplpain.wav */; };
 		63D6739C19263A9F0052C1E8 /* dsgetpow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63D6739B19263A9F0052C1E8 /* dsgetpow.wav */; };
 		63D6739E19263BC00052C1E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D6739D19263BC00052C1E8 /* AVFoundation.framework */; };
-		5A54CA91B41847F6B22F6075 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5396648E01CA4222A78E8CBA /* libPods.a */; };
-		82E9A7601926147B0086E85A /* TSCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9A75F1926147B0086E85A /* TSCameraController.m */; };
+		820437DC19264D8A001B192F /* TSCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820437D819264D8A001B192F /* TSCameraView.m */; };
+		820437DD19264D8A001B192F /* TSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820437DA19264D8A001B192F /* TSCameraViewController.m */; };
+		820437E01926514F001B192F /* TSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820437DF1926514F001B192F /* TSMainViewController.m */; };
 		9D39B70B192618B1004DD893 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9D39B70F192623AC004DD893 /* TSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B70E192623AC004DD893 /* TSMapViewController.m */; };
 		9D39B7151926275D004DD893 /* RGMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B7121926275D004DD893 /* RGMapAnnotation.m */; };
@@ -55,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5396648E01CA4222A78E8CBA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D6737A19261A3D0052C1E8 /* TSAvatarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAvatarViewController.h; sourceTree = "<group>"; };
 		63D6737B19261A3D0052C1E8 /* TSAvatarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAvatarViewController.m; sourceTree = "<group>"; };
 		63D6737E19261B6E0052C1E8 /* TSHealthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHealthModel.h; sourceTree = "<group>"; };
@@ -73,9 +76,13 @@
 		63D67396192638C80052C1E8 /* dsplpain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dsplpain.wav; sourceTree = "<group>"; };
 		63D6739B19263A9F0052C1E8 /* dsgetpow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dsgetpow.wav; sourceTree = "<group>"; };
 		63D6739D19263BC00052C1E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		5396648E01CA4222A78E8CBA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		82E9A75E1926147B0086E85A /* TSCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraController.h; sourceTree = "<group>"; };
-		82E9A75F1926147B0086E85A /* TSCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraController.m; sourceTree = "<group>"; };
+		820437D719264D8A001B192F /* TSCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraView.h; sourceTree = "<group>"; };
+		820437D819264D8A001B192F /* TSCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraView.m; sourceTree = "<group>"; };
+		820437D919264D8A001B192F /* TSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraViewController.h; sourceTree = "<group>"; };
+		820437DA19264D8A001B192F /* TSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraViewController.m; sourceTree = "<group>"; };
+		820437DB19264D8A001B192F /* TSCameraViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraViewControllerDelegate.h; sourceTree = "<group>"; };
+		820437DE1926514F001B192F /* TSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMainViewController.h; sourceTree = "<group>"; };
+		820437DF1926514F001B192F /* TSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMainViewController.m; sourceTree = "<group>"; };
 		9D39B70D192623AC004DD893 /* TSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMapViewController.h; sourceTree = "<group>"; };
 		9D39B70E192623AC004DD893 /* TSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMapViewController.m; sourceTree = "<group>"; };
 		9D39B7111926275D004DD893 /* RGMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGMapAnnotation.h; sourceTree = "<group>"; };
@@ -170,6 +177,8 @@
 		9D39B70C192622FC004DD893 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				820437D719264D8A001B192F /* TSCameraView.h */,
+				820437D819264D8A001B192F /* TSCameraView.m */,
 				9D39B7111926275D004DD893 /* RGMapAnnotation.h */,
 				9D39B7121926275D004DD893 /* RGMapAnnotation.m */,
 				9D39B7131926275D004DD893 /* RGAnnotationView.h */,
@@ -181,8 +190,13 @@
 		9D39B71019262485004DD893 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				820437D919264D8A001B192F /* TSCameraViewController.h */,
+				820437DA19264D8A001B192F /* TSCameraViewController.m */,
+				820437DB19264D8A001B192F /* TSCameraViewControllerDelegate.h */,
 				9D39B70D192623AC004DD893 /* TSMapViewController.h */,
 				9D39B70E192623AC004DD893 /* TSMapViewController.m */,
+				820437DE1926514F001B192F /* TSMainViewController.h */,
+				820437DF1926514F001B192F /* TSMainViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -238,8 +252,6 @@
 				9D39B70C192622FC004DD893 /* Views */,
 				9D882A871926120F002A07D8 /* TSAppDelegate.h */,
 				9D882A881926120F002A07D8 /* TSAppDelegate.m */,
-				82E9A75E1926147B0086E85A /* TSCameraController.h */,
-				82E9A75F1926147B0086E85A /* TSCameraController.m */,
 				9D882A8A1926120F002A07D8 /* Images.xcassets */,
 				9D882A7F1926120F002A07D8 /* Supporting Files */,
 			);
@@ -421,15 +433,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820437DC19264D8A001B192F /* TSCameraView.m in Sources */,
 				63D6738019261B6E0052C1E8 /* TSHealthModel.m in Sources */,
 				9D39B7151926275D004DD893 /* RGMapAnnotation.m in Sources */,
 				9D882A851926120F002A07D8 /* main.m in Sources */,
+				820437E01926514F001B192F /* TSMainViewController.m in Sources */,
 				63D6737C19261A3D0052C1E8 /* TSAvatarViewController.m in Sources */,
 				9D39B7161926275D004DD893 /* RGAnnotationView.m in Sources */,
 				9D39B71A19262FCC004DD893 /* TSMapData.m in Sources */,
 				9D39B70F192623AC004DD893 /* TSMapViewController.m in Sources */,
-				82E9A7601926147B0086E85A /* TSCameraController.m in Sources */,
 				9D882A891926120F002A07D8 /* TSAppDelegate.m in Sources */,
+				820437DD19264D8A001B192F /* TSCameraViewController.m in Sources */,
 				9D39B70B192618B1004DD893 /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
