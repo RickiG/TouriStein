@@ -92,22 +92,20 @@
 
 - (void)flashSmileView
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIImageView *smileView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DontSmile"]];
-        smileView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
-        [self.view addSubview:smileView];
-        
-        [UIView animateWithDuration:0.3
-                              delay:0.2
-                            options:0
-                         animations:^{
-                             smileView.transform = CGAffineTransformMakeScale(2.0, 2.0);
-                             smileView.alpha = 0.0;
-                         } completion:^(BOOL finished) {
-                             [smileView removeFromSuperview];
-                         }];
-    });
-
+    UIImageView *smileView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DontSmile"]];
+    smileView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+    [self.view addSubview:smileView];
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.2
+                        options:0
+                     animations:^{
+                         smileView.transform = CGAffineTransformMakeScale(2.0, 2.0);
+                         smileView.alpha = 0.0;
+                     } completion:^(BOOL finished) {
+                         [smileView removeFromSuperview];
+                     }];
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

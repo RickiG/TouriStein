@@ -141,7 +141,10 @@ NSString * const TSCameraViewControllerTouristDidSmileNotification = @"TSCameraV
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if (feature.hasSmile) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:TSCameraViewControllerTouristDidSmileNotification object:self];
+                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:TSCameraViewControllerTouristDidSmileNotification object:self]
+                                                           postingStyle:NSPostWhenIdle
+                                                           coalesceMask:NSNotificationCoalescingOnName
+                                                               forModes:nil];
                 if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectHappyTourist:)]) {
                     [self.delegate cameraViewControllerDidDetectHappyTourist:self];
                 }
