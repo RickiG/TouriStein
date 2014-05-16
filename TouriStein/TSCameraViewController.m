@@ -12,10 +12,13 @@
 
 #import "TSCameraViewController.h"
 
-@interface TSCameraViewController () <AVCaptureMetadataOutputObjectsDelegate>
+@interface TSCameraViewController () <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property AVCaptureSession *captureSession;
 @property AVCaptureMetadataOutput *metadataOutput;
+@property AVCaptureVideoDataOutput *videoDataOutput;
+
+@property CIDetector *faceDetector;
 
 @property TSCameraView *cameraView;
 
@@ -28,9 +31,11 @@
     self = [super init];
     if (self) {
         
-        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+        //Set up the Face detector
+        self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
         
         //Get the Front Camera
+        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
         AVCaptureDevice *device = nil;
         for (AVCaptureDevice *deviceCandidate in devices) {
             if (deviceCandidate.position == AVCaptureDevicePositionFront) {
@@ -54,6 +59,10 @@
             
             self.metadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeFace];
             [self.metadataOutput setMetadataObjectsDelegate:self queue:dispatch_queue_create(nil, nil)];
+            
+            self.videoDataOutput = [[AVCaptureVideoDataOutput alloc] init];
+            [self.videoDataOutput setSampleBufferDelegate:self queue:dispatch_queue_create(nil, nil)];
+            [self.captureSession addOutput:self.videoDataOutput];
             
             [self.captureSession startRunning];
         }
@@ -88,6 +97,27 @@
     if (hasFace != self.hasFace) {
         self.hasFace = hasFace;
         NSLog(@"We have %@ face", hasFace ? @"a" : @"no");
+    }
+}
+
+#pragma mark AVCaptureVideoDataOutputSampleBufferDelegate
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
+    //NSLog(@"Dropped a frame :-(");
+}
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
+    CIImage *image = [CIImage imageWithCVPixelBuffer:CMSampleBufferGetImageBuffer(sampleBuffer) options:nil];
+    NSArray *features = [self.faceDetector featuresInImage:image options:@{CIDetectorImageOrientation: @6,
+                                                                           CIDetectorSmile: @YES}];
+    for (CIFaceFeature *feature in features) {
+        if (feature.hasSmile) {
+            NSLog(@"You Smile! You Lose!");
+        } else {
+            NSLog(@"No Smile. You're a real berliner");
+        }
     }
 }
 
