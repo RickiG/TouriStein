@@ -7,7 +7,7 @@
 //
 
 #import "TSCameraController.h"
-
+#import "TSMapViewController.h"
 #import "TSAppDelegate.h"
 
 @implementation TSAppDelegate
@@ -22,7 +22,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self performSelector:@selector(setupCamera) withObject:nil afterDelay:0];
+    [self performSelector:@selector(setupMapViewController) withObject:nil afterDelay:0];
+//    [self performSelector:@selector(setupCamera) withObject:nil afterDelay:0];
     
     return YES;
 }
@@ -30,6 +31,12 @@
 - (void)setupCamera
 {
     self.cameraController = [[TSCameraController alloc] init];
+}
+
+- (void) setupMapViewController
+{
+    TSMapViewController *mapViewController = [[TSMapViewController alloc] init];
+    self.window.rootViewController = mapViewController;
 }
 
 @end
