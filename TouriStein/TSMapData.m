@@ -18,17 +18,21 @@
     CLCircularRegion *mkr3 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"medikit"];
     CLCircularRegion *mkr4 = [TSMapData regionForLattitude:52.52726 longitude:13.39816 identifier:@"medikit"];
 
-    return @[mkr1, mkr2, mkr3, mkr4];
+//    return @[mkr1, mkr2, mkr3, mkr4];
+    
+    return @[mkr1];
 }
 
 + (NSArray*) touristRegions
 {
-    CLCircularRegion *tr1 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"tourist"];
+    CLCircularRegion *tr1 = [TSMapData regionForLattitude:52.502439 longitude:13.412841 identifier:@"tourist"];
     CLCircularRegion *tr2 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"tourist"];
     CLCircularRegion *tr3 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"tourist"];
     CLCircularRegion *tr4 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"tourist"];
     
-    return @[tr1, tr2, tr3, tr4];
+//    return @[tr1, tr2, tr3, tr4];
+    
+    return @[tr1];
 }
 
 static CLLocationDistance kRadius = 100.0;
