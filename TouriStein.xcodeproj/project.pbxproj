@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		820437D619264118001B192F /* TSCameraViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraViewControllerDelegate.h; sourceTree = "<group>"; };
 		82E9A75E1926147B0086E85A /* TSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraViewController.h; sourceTree = "<group>"; };
 		82E9A75F1926147B0086E85A /* TSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraViewController.m; sourceTree = "<group>"; };
 		82E9A764192629030086E85A /* TSCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraView.h; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 				9D882A881926120F002A07D8 /* TSAppDelegate.m */,
 				82E9A75E1926147B0086E85A /* TSCameraViewController.h */,
 				82E9A75F1926147B0086E85A /* TSCameraViewController.m */,
+				820437D619264118001B192F /* TSCameraViewControllerDelegate.h */,
 				82E9A764192629030086E85A /* TSCameraView.h */,
 				82E9A765192629030086E85A /* TSCameraView.m */,
 				9D882A8A1926120F002A07D8 /* Images.xcassets */,

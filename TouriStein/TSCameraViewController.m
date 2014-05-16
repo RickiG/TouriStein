@@ -114,9 +114,13 @@
                                                                            CIDetectorSmile: @YES}];
     for (CIFaceFeature *feature in features) {
         if (feature.hasSmile) {
-            NSLog(@"You Smile! You Lose!");
+            if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectHappyTourist:)]) {
+                [self.delegate cameraViewControllerDidDetectHappyTourist:self];
+            }
         } else {
-            NSLog(@"No Smile. You're a real berliner");
+            if ([self.delegate respondsToSelector:@selector(cameraViewControllerDidDetectSadTourist:)]) {
+                [self.delegate cameraViewControllerDidDetectSadTourist:self];
+            }
         }
     }
 }

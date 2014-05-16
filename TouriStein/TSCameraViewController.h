@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TSCameraViewControllerDelegate.h"
+
 @interface TSCameraViewController : UIViewController
+
+@property (weak) id<TSCameraViewControllerDelegate> delegate;
 
 @property BOOL hasFace;
 
