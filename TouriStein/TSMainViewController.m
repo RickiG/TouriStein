@@ -59,6 +59,11 @@
     [self.cameraViewController addObserver:self forKeyPath:@"hasFace" options:0 context:0];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (object == self.cameraViewController && [keyPath isEqualToString:@"hasFace"]) {
