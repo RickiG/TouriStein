@@ -13,6 +13,8 @@ static NSString *const TSHealthDidChangeNotification = @"TSHealthDidChangeNotifi
 
 @interface TSHealthModel : NSObject
 
++ (TSHealthModel *)sharedInstance;
+
 - (UIImage *)avatarImage;
 - (NSString *)soundNameForHealthChange:(NSInteger)change;
 

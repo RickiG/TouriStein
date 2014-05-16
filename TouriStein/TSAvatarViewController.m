@@ -12,7 +12,6 @@
 
 @interface TSAvatarViewController ()
 
-@property (nonatomic, strong) TSHealthModel *model;
 @property (nonatomic, strong) UIImageView *avatarView;
 @property (nonatomic, strong) UIView *flashView;
 
@@ -26,7 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.model = [TSHealthModel new];
+        [TSHealthModel sharedInstance];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(healthDidChange:) name:TSHealthDidChangeNotification object:nil];
     }
     return self;
@@ -37,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.avatarView = [[UIImageView alloc] initWithImage:[_model avatarImage]];
+    self.avatarView = [[UIImageView alloc] initWithImage:[[TSHealthModel sharedInstance] avatarImage]];
     [self.view addSubview:_avatarView];
     
     self.flashView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -88,7 +87,7 @@
 
 - (void)playSoundForChange:(NSInteger)change
 {
-    NSString *soundName = [_model soundNameForHealthChange:change];
+    NSString *soundName = [[TSHealthModel sharedInstance] soundNameForHealthChange:change];
     
     SystemSoundID audioEffect;
     NSString *path = [[NSBundle mainBundle] pathForResource : soundName ofType :@"wav"];
@@ -104,10 +103,10 @@
 
 - (void)healthDidChange:(NSNotification *)notification
 {
-    self.avatarView.image = [_model avatarImage];
+    self.avatarView.image = [[TSHealthModel sharedInstance] avatarImage];
     
     NSInteger oldHealth = [notification.object integerValue];
-    NSInteger change = [_model healthLevel] - oldHealth;
+    NSInteger change = [[TSHealthModel sharedInstance] healthLevel] - oldHealth;
     
     [self setFlashColorForChange:change];
     [self flash];
@@ -122,13 +121,13 @@
 {
     CGFloat value = arc4random() % 100;
     if(value < 10){
-        [self.model bigHit];
+        [[TSHealthModel sharedInstance] bigHit];
     } else if(value < 15){
-        [self.model bigRecharge];
+        [[TSHealthModel sharedInstance] bigRecharge];
     } else if(value < 20){
-        [self.model smallRecharge];
+        [[TSHealthModel sharedInstance] smallRecharge];
     } else {
-        [self.model smallHit];
+        [[TSHealthModel sharedInstance] smallHit];
     }
     
 }

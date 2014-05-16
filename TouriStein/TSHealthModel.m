@@ -16,6 +16,17 @@
 
 @implementation TSHealthModel
 
++ (TSHealthModel *)sharedInstance
+{
+    static dispatch_once_t pred;
+    static TSHealthModel *instance = nil;
+    dispatch_once(&pred, ^{
+        instance = [[self alloc] init];
+    });
+	return instance;
+}
+
+
 - (id)init
 {
     self = [super init];
