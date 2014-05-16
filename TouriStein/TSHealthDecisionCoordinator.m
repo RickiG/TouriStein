@@ -77,7 +77,7 @@
 
 - (void)startTimer
 {
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:YES];
 }
 
 - (void)timerDidFire:(NSTimer *)timer
