@@ -6,37 +6,24 @@
 //  Copyright (c) 2014 TouriStein 3D. All rights reserved.
 //
 
-#import "TSCameraController.h"
-#import "TSMapViewController.h"
+#import "TSMainViewController.h"
 #import "TSAppDelegate.h"
 
 @implementation TSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIViewController *preliminaryViewController = [[UIViewController alloc] init];
-    self.window.rootViewController = preliminaryViewController;
+    self.window.rootViewController = [[TSMainViewController alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self performSelector:@selector(setupMapViewController) withObject:nil afterDelay:0];
-//    [self performSelector:@selector(setupCamera) withObject:nil afterDelay:0];
-    
     return YES;
-}
-
-- (void)setupCamera
-{
-    self.cameraController = [[TSCameraController alloc] init];
-}
-
-- (void) setupMapViewController
-{
-    TSMapViewController *mapViewController = [[TSMapViewController alloc] init];
-    self.window.rootViewController = mapViewController;
 }
 
 @end
