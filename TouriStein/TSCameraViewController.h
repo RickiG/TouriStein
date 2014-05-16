@@ -10,6 +10,8 @@
 
 #import "TSCameraViewControllerDelegate.h"
 
+extern NSString * const TSCameraViewControllerTouristDidSmileNotification;
+
 @interface TSCameraViewController : UIViewController
 
 @property (weak) id<TSCameraViewControllerDelegate> delegate;
