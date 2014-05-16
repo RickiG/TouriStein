@@ -74,6 +74,60 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[Avatar(100)]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[Avatar(130)]-|" options:0 metrics:nil views:views]];
     
+    [self.cameraViewController addObserver:self forKeyPath:@"hasFace" options:0 context:0];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(flashSmileView) name:TSCameraViewControllerTouristDidSmileNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.cameraViewController.view.alpha = (self.cameraViewController.hasFace) ? 0.0 : 1.0;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+- (void)flashSmileView
+{
+    UIImageView *smileView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DontSmile"]];
+    smileView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+    [self.view addSubview:smileView];
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.2
+                        options:0
+                     animations:^{
+                         smileView.transform = CGAffineTransformMakeScale(2.0, 2.0);
+                         smileView.alpha = 0.0;
+                     } completion:^(BOOL finished) {
+                         [smileView removeFromSuperview];
+                     }];
+    
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (object == self.cameraViewController && [keyPath isEqualToString:@"hasFace"]) {
+        [self updateInterface];
+        return;
+    }
+    
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+- (void)updateInterface
+{
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.cameraViewController.view.alpha = (self.cameraViewController.hasFace) ? 0.0 : 1.0;
+                     }
+                     completion:nil];
+
     self.flashView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.flashView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     
