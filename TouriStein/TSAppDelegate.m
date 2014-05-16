@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 TouriStein 3D. All rights reserved.
 //
 
+#import "TSCameraController.h"
+#import "TSMapViewController.h"
 #import "TSAppDelegate.h"
 #import "TSAvatarViewController.h"
 
@@ -17,25 +19,31 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    UIViewController *preliminaryViewController = [[UIViewController alloc] init];
+    self.window.rootViewController = preliminaryViewController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[TSAvatarViewController alloc] init];
     [self.window makeKeyAndVisible];
     
     
+    
+    [self performSelector:@selector(setupMapViewController) withObject:nil afterDelay:0];
+//    [self performSelector:@selector(setupCamera) withObject:nil afterDelay:0];
+    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+- (void)setupCamera
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    self.cameraController = [[TSCameraController alloc] init];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+- (void) setupMapViewController
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    TSMapViewController *mapViewController = [[TSMapViewController alloc] init];
+    self.window.rootViewController = mapViewController;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
