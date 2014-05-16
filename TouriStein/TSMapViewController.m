@@ -10,15 +10,16 @@
 #import "RGAnnotationView.h"
 #import "RGMapAnnotation.h"
 #import "TSMapData.h"
+#import "RGLocationController.h"
 
 @import MapKit;
 
-@interface TSMapViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
+@interface TSMapViewController ()<MKMapViewDelegate, RGLocationProtocol>
 
 @property(nonatomic, strong) MKMapView *mapView;
 @property(nonatomic, strong) NSArray *mediKitRegions;
 @property(nonatomic, strong) NSArray *touristRegions;
-@property(nonatomic, strong) CLLocationManager *locationManager;
+@property(nonatomic, strong) RGLocationController *locationController;
 
 @end
 
@@ -29,7 +30,6 @@
     self = [super init];
     if (self) {
 
-        
     }
     return self;
 }
@@ -37,11 +37,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupMapView];
-    [self setupMediKitRegions];
-    [self setupMediKitAnnotations];
     
+    self.mediKitRegions = [TSMapData medikitRegions];
+    self.touristRegions = [TSMapData touristRegions];
+    
+    [self setupMapView];
     [self setupLocationManager];
+    [self setupMediKitAnnotations];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -49,6 +51,8 @@
     [super viewDidAppear:animated];
     self.mapView.frame = self.view.bounds;
 }
+
+#pragma mark - Setup
 
 - (void) setupMapView
 {
@@ -61,19 +65,15 @@
 
 - (void) setupLocationManager
 {
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
-    [_locationManager startUpdatingLocation];
-}
-
-- (void) setupMediKitRegions
-{
-    _mediKitRegions = [TSMapData medikitRegions];
-}
-
-- (void) setupTouristRegions
-{
+    _locationController = [[RGLocationController alloc] init];
+    _locationController.delegate = self;
     
+    NSArray *regions = _mediKitRegions;
+    regions = [_mediKitRegions arrayByAddingObjectsFromArray:_touristRegions];
+
+    [_locationController setRegionsToMonitor:regions];
+    
+    [_locationController startUpdatingLocation];
 }
 
 - (void) setupMediKitAnnotations
@@ -87,10 +87,7 @@
     }
 }
 
-- (void) setupTouristAnnotations
-{
-    
-}
+#pragma mark -
 
 - (void) snapToLocation:(CLLocation*) location
 {
@@ -102,7 +99,6 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *) theMapView viewForAnnotation:(id)annotation
 {
-
     if([annotation isKindOfClass:[RGMapAnnotation class]]) {
         
         NSString *annotationIdentifier = [self imagePathForAnnotation:annotation];
@@ -140,20 +136,25 @@
 
 #pragma mark - CLLocationManagerDelegate
 
--(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+- (void) locationController:(id) controller didUpdateUserLocation:(CLLocation*) location
 {
-    
-}
-
--(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    CLLocation *location = locations.firstObject;
     [self snapToLocation:location];
+}
+
+- (void)locationController:(id)controller isInRegion:(CLCircularRegion *)region
+{
+    if ([region.identifier isEqualToString:@"medikit"]) {
+        [self.delegate mapViewControllerFoundMediKit:self];
+    } else if ([region.identifier isEqualToString:@"tourist"]) {
+        [self.delegate mapViewControllerDidEnterTouristArea:self];
+    }
+}
+
+- (void)locationController:(id)controller isNotInRegion:(CLCircularRegion *)region
+{
+    if ([region.identifier isEqualToString:@"tourist"]) {
+        [self.delegate mapViewControllerDidLeaveTouristArea:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning
