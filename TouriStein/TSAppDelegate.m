@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 TouriStein 3D. All rights reserved.
 //
 
-#import "TSCameraController.h"
+#import "TSCameraViewController.h"
 
 #import "TSAppDelegate.h"
 
@@ -16,20 +16,13 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIViewController *preliminaryViewController = [[UIViewController alloc] init];
-    self.window.rootViewController = preliminaryViewController;
+    TSCameraViewController *cameraController = [[TSCameraViewController alloc] init];
+    self.window.rootViewController = cameraController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    [self performSelector:@selector(setupCamera) withObject:nil afterDelay:0];
-    
+        
     return YES;
-}
-
-- (void)setupCamera
-{
-    self.cameraController = [[TSCameraController alloc] init];
 }
 
 @end

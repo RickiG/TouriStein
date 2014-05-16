@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSCameraController : NSObject
+@interface TSCameraViewController : UIViewController
+
+@property BOOL hasFace;
 
 @end

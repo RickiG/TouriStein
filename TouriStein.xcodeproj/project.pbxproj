@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		82E9A7601926147B0086E85A /* TSCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9A75F1926147B0086E85A /* TSCameraController.m */; };
+		82E9A7601926147B0086E85A /* TSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9A75F1926147B0086E85A /* TSCameraViewController.m */; };
+		82E9A766192629030086E85A /* TSCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9A765192629030086E85A /* TSCameraView.m */; };
 		9D882A791926120F002A07D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A781926120F002A07D8 /* Foundation.framework */; };
 		9D882A7B1926120F002A07D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A7A1926120F002A07D8 /* CoreGraphics.framework */; };
 		9D882A7D1926120F002A07D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A7C1926120F002A07D8 /* UIKit.framework */; };
@@ -33,8 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		82E9A75E1926147B0086E85A /* TSCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraController.h; sourceTree = "<group>"; };
-		82E9A75F1926147B0086E85A /* TSCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraController.m; sourceTree = "<group>"; };
+		82E9A75E1926147B0086E85A /* TSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraViewController.h; sourceTree = "<group>"; };
+		82E9A75F1926147B0086E85A /* TSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraViewController.m; sourceTree = "<group>"; };
+		82E9A764192629030086E85A /* TSCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCameraView.h; sourceTree = "<group>"; };
+		82E9A765192629030086E85A /* TSCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCameraView.m; sourceTree = "<group>"; };
 		9D882A751926120F002A07D8 /* TouriStein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouriStein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D882A781926120F002A07D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D882A7A1926120F002A07D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,8 +115,10 @@
 			children = (
 				9D882A871926120F002A07D8 /* TSAppDelegate.h */,
 				9D882A881926120F002A07D8 /* TSAppDelegate.m */,
-				82E9A75E1926147B0086E85A /* TSCameraController.h */,
-				82E9A75F1926147B0086E85A /* TSCameraController.m */,
+				82E9A75E1926147B0086E85A /* TSCameraViewController.h */,
+				82E9A75F1926147B0086E85A /* TSCameraViewController.m */,
+				82E9A764192629030086E85A /* TSCameraView.h */,
+				82E9A765192629030086E85A /* TSCameraView.m */,
 				9D882A8A1926120F002A07D8 /* Images.xcassets */,
 				9D882A7F1926120F002A07D8 /* Supporting Files */,
 			);
@@ -245,8 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E9A766192629030086E85A /* TSCameraView.m in Sources */,
 				9D882A851926120F002A07D8 /* main.m in Sources */,
-				82E9A7601926147B0086E85A /* TSCameraController.m in Sources */,
+				82E9A7601926147B0086E85A /* TSCameraViewController.m in Sources */,
 				9D882A891926120F002A07D8 /* TSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

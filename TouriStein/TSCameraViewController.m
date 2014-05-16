@@ -8,16 +8,20 @@
 
 @import AVFoundation;
 
-#import "TSCameraController.h"
+#import "TSCameraView.h"
 
-@interface TSCameraController () <AVCaptureMetadataOutputObjectsDelegate>
+#import "TSCameraViewController.h"
+
+@interface TSCameraViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property AVCaptureSession *captureSession;
 @property AVCaptureMetadataOutput *metadataOutput;
 
+@property TSCameraView *cameraView;
+
 @end
 
-@implementation TSCameraController
+@implementation TSCameraViewController
 
 - (instancetype)init;
 {
@@ -62,12 +66,28 @@
     [self.captureSession stopRunning];
 }
 
+#pragma mark UIViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.cameraView = [[TSCameraView alloc] initWithFrame:self.view.bounds session:self.captureSession];
+    self.cameraView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    [self.view addSubview:self.cameraView];
+}
+
+
 #pragma mark AVCaptureMetadataOutputObjectsDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
-    if (metadataObjects.count > 0) {
-        NSLog(@"Got a Face!");
+    BOOL hasFace = (metadataObjects.count > 0);
+    
+    //Don't set all the time
+    if (hasFace != self.hasFace) {
+        self.hasFace = hasFace;
+        NSLog(@"We have %@ face", hasFace ? @"a" : @"no");
     }
 }
 
