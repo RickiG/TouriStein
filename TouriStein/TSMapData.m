@@ -16,7 +16,7 @@
     CLCircularRegion *mkr1 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"medikit"];
     CLCircularRegion *mkr2 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"medikit"];
     CLCircularRegion *mkr3 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"medikit"];
-    CLCircularRegion *mkr4 = [TSMapData regionForLattitude:52.502682 longitude:13.412207 identifier:@"medikit"];
+    CLCircularRegion *mkr4 = [TSMapData regionForLattitude:52.52726 longitude:13.39816 identifier:@"medikit"];
 
     return @[mkr1, mkr2, mkr3, mkr4];
 }
