@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D39B70B192618B1004DD893 /* TSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39B70A192618B1004DD893 /* TSViewController.m */; };
 		9D882A791926120F002A07D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A781926120F002A07D8 /* Foundation.framework */; };
 		9D882A7B1926120F002A07D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A7A1926120F002A07D8 /* CoreGraphics.framework */; };
 		9D882A7D1926120F002A07D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D882A7C1926120F002A07D8 /* UIKit.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D39B709192618B1004DD893 /* TSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSViewController.h; sourceTree = "<group>"; };
+		9D39B70A192618B1004DD893 /* TSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSViewController.m; sourceTree = "<group>"; };
 		9D882A751926120F002A07D8 /* TouriStein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouriStein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D882A781926120F002A07D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D882A7A1926120F002A07D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +114,8 @@
 				9D882A881926120F002A07D8 /* TSAppDelegate.m */,
 				9D882A8A1926120F002A07D8 /* Images.xcassets */,
 				9D882A7F1926120F002A07D8 /* Supporting Files */,
+				9D39B709192618B1004DD893 /* TSViewController.h */,
+				9D39B70A192618B1004DD893 /* TSViewController.m */,
 			);
 			path = TouriStein;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			files = (
 				9D882A851926120F002A07D8 /* main.m in Sources */,
 				9D882A891926120F002A07D8 /* TSAppDelegate.m in Sources */,
+				9D39B70B192618B1004DD893 /* TSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +444,7 @@
 				9D882AA31926120F002A07D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D882AA41926120F002A07D8 /* Build configuration list for PBXNativeTarget "TouriSteinTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +453,7 @@
 				9D882AA61926120F002A07D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
