@@ -37,7 +37,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    self.mapView.frame = self.view.bounds;
 }
 
 - (void) setupMapView
