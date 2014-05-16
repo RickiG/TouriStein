@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSCameraController;
+
 @interface TSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property TSCameraController *cameraController;
 
 @end
